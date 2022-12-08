@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <title>Web APIs Quiz Challenge</title>
+</head>
+<body>
+
+<!--Display for users' scores-->
+<nav id="previous-results" class="results-button">Hall of Fame</nav>
+
+<!--Structure for main content-->
+    <div class="container-card"> 
+
+<!--Quiz intro-->
+    <section id="quiz-intro">
+    <h1>Coding Quiz Challenge</h1>
+        <p>Answer the following coding questions as quickly as you can!<br>
+           You have 70 seconds to get the highest possible score. However, you will lose 10 seconds if you choose incorrectly.
+        </p> 
+    </section>
+
+<!--Score display-->
+    <section id="quiz-score" class="hide">
+    <h1> Finished  </h1>
+        <p>Your score is:<span id="score"></span>/100</p> 
+        <p>
+            <label for="initials">Please add your Initial</label>
+            <input type="text" id="initials" name="initials" maxlength="4" />
+        </p>
+        <button id="save" class="button" onclick="saveScore(document.getElementById('initials').value)">Save</button>
+    </section>
+
+
+<!--Question/ Answer container-->
+        <div id = "q-container" class ="hide">
+        <div id="question">Question?</div>
+            <div id="answer-options" class = "options-style">
+                <button class="button">Option 1</button>
+                <button class="button">Option 2</button>
+                <button class="button">Option 3</button>
+                <button class="button">Option 4</button>
+            </div>
+        </div>
+
+<!--Navigation buttons-->
+        <div id = "nav-buttons">
+
+            <button id="start-button" class="button start-button">Start</button>
+            <button id="next-button" class="hide button next-button">Next</button>
+                               
+        </div>
+    </div>
+
+
+<!--Timer-->
+<div id="countdown" class="timer">Timer</div>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
+
