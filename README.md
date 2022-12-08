@@ -28,7 +28,7 @@ N/A
 
 ## Submission Links
 
-### Deployed URL: 
+### Deployed URL: https://momoncada.github.io/pop-quiz-time/
 
 ### GitHub: https://github.com/MoMoncada/pop-quiz-time
 
