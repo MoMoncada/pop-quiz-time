@@ -202,7 +202,7 @@ while (ansOptionsElement.firstChild) {
 
 }
 
-// ----- Displays if the answer is correct or incorrect ----- //
+// ----- Colour code for answer (correct/incorrect) ----- //
 function quizAnsStatus (element, correct) {
     clearAnsStatus (element)
     if (correct) {
