@@ -17,7 +17,7 @@ var qIndex,timeInterval, userData = []
 var questions = [
 
     {
-        question: "How can you add a comment in a JavaScript?",
+        question: "How do you add a comment in a JavaScript?",
         answers: [
             {text:"<!--This is a comment-->", correct: false},
             {text: " -> This is a comment <-", correct: false},

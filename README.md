@@ -39,7 +39,7 @@ N/A
 ![Intro Page](./assets/images/intro-page.png)
 
 ### Quiz Content
-![Quiz Question](./assets/images/question-example.png)
+![Quiz Question](./assets/images/q-example.png)
 
 ### Final Score Page
 ![Results](./assets/images/scores-page.png)
