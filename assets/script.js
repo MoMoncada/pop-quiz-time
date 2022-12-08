@@ -1,10 +1,3 @@
-// le quiero quitar el shuffle al orden de las preguntas para que salgan en el orden del array 
-// function para que el quiz termine al acabar las preguntas o si se acaba el tiempo
-// ponerle score a las preguntas correctas y que se muestren en pantalla
-// guardar los scores y poner un input con iniciales que se guarde
-//ponele los colores que querras xD si lo ves ofensivo, trat'e con todo mi ser de no usar azul y negro 
-
-
 const startButton = document.getElementById("start-button")
 var nextButton = document.getElementById("next-button")
 var timer = document.querySelector("#countdown");
@@ -14,14 +7,26 @@ var qElement = document.getElementById("question")
 var ansOptionsElement = document.getElementById("answer-options")
 var qScore = document.getElementById("quiz-score");
 
-var secLeft = 30, score = 0;
-var qIndex,timeInterval, userData = [] //
+var secLeft = 50, score = 0;
+var qIndex,timeInterval, userData = [] 
 
 
 
 
 //----- Array for Q&A's -----//
 var questions = [
+
+    {
+        question: "How can you add a comment in a JavaScript?",
+        answers: [
+            {text:"<!--This is a comment-->", correct: false},
+            {text: " -> This is a comment <-", correct: false},
+            {text: "/* This is a comment */", correct: true},
+            {text: " 'This is a comment' ", correct: false}
+        ]
+    
+    },
+
     {
         question: "Javascript is an ______ language?",
         answers: [
@@ -33,23 +38,12 @@ var questions = [
     },
 
     {
-        question: "Does Chip like lettuce?",
+        question: "Inside which HTML element do we put the JavaScript?",
         answers: [
-            {text:"Yes", correct: false},
-            {text: "Sometimes", correct: false},
-            {text: "More than meat", correct: false},
-            {text: "Hates it", correct: true}
-        ]
-    
-    },
-
-    {
-        question: "Does Jay steal my snacks?",
-        answers: [
-            {text:"Yes", correct: true},
-            {text: "YES", correct: true},
-            {text: "YEEEEESSS", correct: true},
-            {text: "And he never replaces them", correct: true}
+            {text:"<jsing>", correct: false},
+            {text: "<jshere>", correct: false},
+            {text: "<link>", correct: false},
+            {text: "<script>", correct: true}
         ]
     
     },
@@ -67,16 +61,19 @@ var questions = [
     },
 
     {
-        question: "Does Chip like lettuce?",
+        question: "How do you create a function in JavaScript?",
         answers: [
-            {text:"Yes", correct: false},
-            {text: "Sometimes", correct: false},
-            {text: "More than meat", correct: false},
-            {text: "Hates it", correct: true}
+            {text:"make.myfunction()", correct: false},
+            {text: "function myFunction()", correct: true},
+            {text: "function = myFunction()", correct: false},
+            {text: "All of the above", correct: false}
         ]
     
     }
 
+   
+
+   
 ]
 
 
@@ -103,9 +100,9 @@ function startQuiz() {
 
 }
 
-/* 
-    this function will be triggered when the timer reaches 0 or the quiz is completed 
-*/
+
+// ----- End the quiz when we have looped through the array of Q's or the timer gets to '0' ----- //
+
 function stopQuiz() {
     
     
@@ -128,7 +125,7 @@ function saveScore(initials){
     startButton.classList.remove('hide');
     qScore.classList.add("hide");
     countdown.textContent = "Timer"
-    secLeft = 30;
+    secLeft = 50;
 }
 
 function nextQuestion() {
@@ -171,21 +168,21 @@ function selectAns(e) {
 
     quizAnsStatus (document.body, correct)
 
-    
-    // condition to add score or remove time
+// ----- Condition to add score/ remove time ----- //
     if(correct){
         score+=20;
     }else{
         secLeft-=5;
     }
 
+// ----- We fill up the 'button containers' with the next array of answers ----- //
     Array.from(ansOptionsElement.children).forEach(newButton => {
         quizAnsStatus(newButton, newButton.dataset.correct)
     })
 
-    // qindex counter added
+
     qIndex ++;
-    if (questions.length > qIndex + 1) { //
+    if (questions.length >= qIndex +1) { 
         nextButton.classList.remove('hide')
     } else {
         stopQuiz();
@@ -205,7 +202,7 @@ while (ansOptionsElement.firstChild) {
 
 }
 
-
+// ----- Displays if the answer is correct or incorrect ----- //
 function quizAnsStatus (element, correct) {
     clearAnsStatus (element)
     if (correct) {
