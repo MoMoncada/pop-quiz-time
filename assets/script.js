@@ -172,7 +172,7 @@ function selectAns(e) {
     if(correct){
         score+=20;
     }else{
-        secLeft-=5;
+        secLeft-=10;
     }
 
 // ----- We fill up the 'button containers' with the next array of answers ----- //
