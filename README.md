@@ -1,4 +1,4 @@
-# Random Password Generator
+# Pop Quiz Time
 
 ## Description
 The following application is a quick test on the user's code knowledge. 
@@ -35,10 +35,16 @@ N/A
 ---------------------
 
 ## Deployed Web Page
-
+### Introduction Page
 ![Intro Page](./assets/images/intro-page.png)
+
+### Quiz Content
 ![Quiz Question](./assets/images/question-example.png)
+
+### Final Score Page
 ![Results](./assets/images/scores-page.png)
+
+
 
 ## Credits
 Maria Auxiliadora Moncada 
