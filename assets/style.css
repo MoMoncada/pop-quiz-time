@@ -58,6 +58,7 @@ a {
 }
 
 
+
 /* ---- Quiz Introduction header and text specs ----  */
 h1 {
     text-align: center;
@@ -65,6 +66,14 @@ h1 {
     font-weight: bold;
     
 }
+
+
+ul {
+    list-style-type: none;
+
+}
+
+
 
 p {
     text-align: justify;

@@ -8,7 +8,7 @@ var ansOptionsElement = document.getElementById("answer-options")
 var qScore = document.getElementById("quiz-score");
 
 var secLeft = 50, score = 0;
-var qIndex,timeInterval, userData = [] 
+var qIndex,timeInterval, userData = JSON.parse(localStorage.getItem('scores')) || []; 
 
 
 
@@ -121,11 +121,38 @@ function saveScore(initials){
         name: initials,
         score: score
     })
+    
+    localStorage.setItem('scores', JSON.stringify(userData));
+    debugger
     introText.classList.remove("hide");
     startButton.classList.remove('hide');
     qScore.classList.add("hide");
     countdown.textContent = "Timer"
     secLeft = 50;
+}
+
+function gethighScores(){
+    
+    const scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+    return scores.sort((a, b) => a.score - b.score);
+    
+}
+
+function generateList(){
+    let items = gethighScores();
+
+
+    for (let i = 0; i < items.length; i++) {
+        var resultsDetails = `${items[i].name}` + " - " + `${items[i].score}` + " points";
+       
+        listItem = document.createElement("li");
+        document.querySelector("#myItemList").appendChild(listItem);
+        listItem.innerText = [i+1] + ". " + resultsDetails;
+    }   
+
+
+   
 }
 
 function nextQuestion() {
@@ -238,6 +265,7 @@ element.classList.remove('correct')
         }
     }, 1000);
 }
+
 
 
 
